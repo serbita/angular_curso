@@ -11,8 +11,8 @@ myapp.config(function($stateProvider, $urlRouterProvider){
             url: "/",
             views: {
                 "todoList": {
-                    templateUrl: "views/main.html",
-                    controller: 'MainCtrl'
+                    templateUrl: "views/todoList.html",
+                    controller: 'todoListCtrl'
                 },
                 "projectList": {
                     templateUrl: "views/project.html"
@@ -46,7 +46,8 @@ myapp.config(function($stateProvider, $urlRouterProvider){
 
         .state('login', {
               url: "/login",
-              templateUrl: "views/login.html"
+              templateUrl: "views/login.html",
+              controller: 'loginCtrl'
         })
 
     })
