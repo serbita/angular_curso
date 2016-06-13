@@ -7,8 +7,8 @@
  * # MainCtrl
  * Controller of the cursoangularApp
  */
- angular.module('cursoangularApp')
- .controller('MainCtrl', function ($scope) {
+ var myapp = angular.module('cursoangularApp')
+ myapp.controller('MainCtrl', function ($scope) {
    $scope.nombre="pera";
 
    $scope.todos=[
