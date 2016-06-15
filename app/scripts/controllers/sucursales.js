@@ -3,8 +3,23 @@
 var myapp = angular.module('cursoangularApp')
 myapp.controller('sucursalesCtrl', function ($scope, $rootScope, sucursalesSrv) {
 
-  sucursalesSrv.list(function(poneys) {
-    $rootScope.sucursalList = poneys;
+
+/*
+  function startTimer () {
+    timer.start();
+    setTimeout(stopTimer,5000);
+}
+
+function stopTimer () {
+    timer.stop();
+}
+*/
+
+  sucursalesSrv.list(function(data) {
+
+//    startTimer();
+
+    $rootScope.sucursalList = data;
   });
 
 });
