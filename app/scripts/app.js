@@ -14,6 +14,10 @@ myapp.config(function($stateProvider, $urlRouterProvider){
                     templateUrl: "views/todoList.html",
                     controller: 'todoListCtrl'
                 },
+                "billMaker": {
+                    templateUrl: "views/billMaker.html",
+                    controller: 'billMakerCtrl'
+                },
                 "projectList": {
                     templateUrl: "views/project.html"
                 },

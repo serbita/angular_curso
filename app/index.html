@@ -49,16 +49,26 @@
 
     <div class="container" ui-view>
           <div class="row">
-            <div class="span5">
-              <div class="well" ui-view="todoList"></div>        
-            </div>
-            <div class="span5">
-              <div class="well" ui-view="projectList"></div>        
-            </div>
-            <div class="span2">
-              <div class="well" ui-view="ayuda"></div>        
+            <div class="col-md-12">
+              <div class="well" ui-view="billMaker"></div>        
             </div>
           </div> 
+
+          <div class="row">
+            <div class="col-md-8">
+              <div class="well" ui-view="todoList"></div>        
+            </div>
+            <div class="col-md-4">
+              <div class="well" ui-view="ayuda"></div>        
+            </div>
+          </div>             
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="well" ui-view="projectList"></div>        
+            </div>
+          </div> 
+
     </div>
 
     <div class="footer">
@@ -99,8 +109,9 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/todoMaker.js"></script>
     <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/billMaker.js"></script>    
     <!-- endbuild -->
 </body>
 </html>

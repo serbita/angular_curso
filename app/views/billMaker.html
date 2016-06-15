@@ -1,0 +1,47 @@
+<div>
+    BILL
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Cantidad</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>total</th>                
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="itemBill in itemsInBill">
+                <td>{{itemBill.cantidad}}</td>            
+                <td>{{itemBill.nombre}}</td>
+                <td>{{itemBill.precio}}</td>
+                <td>{{itemBill.total}}</td>                
+                <td><button class="btn btn-default" ng-click="addItem()"><span class="glyphicon glyphicon-minus">1</span></button></td>                
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+ITEMS
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+				<th>stock</th>
+                <th>Acciones</th>                
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in itemList">
+                <td>{{item.nombre}}</td>
+                <td>{{item.categoria}}</td>
+                <td>{{item.precio}}</td>
+                <td>{{item.stock}}</td>
+                <td><button class="btn btn-default" ng-click="addItemToBill(item._id)"><span class="glyphicon glyphicon-plus"></span>1</button></td>                
+            </tr>           
+        </tbody>
+    </table>
+</div>

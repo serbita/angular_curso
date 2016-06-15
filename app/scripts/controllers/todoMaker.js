@@ -9,7 +9,6 @@
  */
  var myapp = angular.module('cursoangularApp')
  myapp.controller('todoListCtrl', function ($scope) {
-   $scope.nombre="pera";
 
    $scope.todos=[
      {text:'Learn AngularJs',done:true},
