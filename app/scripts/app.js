@@ -34,7 +34,19 @@ myapp.config(function($stateProvider, $urlRouterProvider){
                 $scope.items = ["A", "List", "Of", "Items"];
               }
         })
-          
+
+        .state('empleados', {
+            url: "/empleados",
+            templateUrl: "views/empleados.html",
+            controller: 'empleadosCtrl'
+        })
+
+        .state('sucursales', {
+            url: "/sucursales",
+            templateUrl: "views/sucursales.html",
+            controller: 'sucursalesCtrl'
+        })
+
         .state('about', {
             url: "/about",
             templateUrl: "views/about.html"
