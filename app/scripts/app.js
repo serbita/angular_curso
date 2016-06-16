@@ -1,10 +1,17 @@
 'use strict';
 
 var myapp = angular.module('cursoangularApp', ["ui.router","ngAnimate","ngCookies","ngResource","ngRoute","ngSanitize","ngTouch"])
+/*
+1_ Here's the calling order:
+2_ app.config()
+3_ app.run()
+4_ directive's compile functions (if they are found in the dom)
+5_ app.controller()
+*/
 myapp.config(function($stateProvider, $urlRouterProvider){
       
       // For any unmatched url, send to /route1
-      $urlRouterProvider.otherwise("/")
+      $urlRouterProvider.otherwise("/");
       
       $stateProvider
         .state('route1', {
@@ -12,11 +19,11 @@ myapp.config(function($stateProvider, $urlRouterProvider){
             views: {
                 "todoList": {
                     templateUrl: "views/todoList.html",
-                    controller: 'todoListCtrl'
+                    controller: 'TodoListCtrl'
                 },
                 "billMaker": {
                     templateUrl: "views/billMaker.html",
-                    controller: 'billMakerCtrl'
+                    controller: 'BillMakerCtrl'
                 },
                 "projectList": {
                     templateUrl: "views/project.html"
@@ -37,19 +44,20 @@ myapp.config(function($stateProvider, $urlRouterProvider){
 
         .state('empleados', {
             url: "/empleados",
-            templateUrl: "views/empleados.html",
-            controller: 'empleadosCtrl'
+            templateUrl: "views/employees.html",
+            controller: 'EmployeesCtrl'
         })
 
         .state('sucursales', {
             url: "/sucursales",
             templateUrl: "views/sucursales.html",
-            controller: 'sucursalesCtrl'
+            controller: 'SucursalesCtrl'
         })
 
         .state('about', {
             url: "/about",
-            templateUrl: "views/about.html"
+            templateUrl: "views/about.html",
+            controller: 'AboutCtrl'
         })
         
         .state('route2.list', {
@@ -63,7 +71,10 @@ myapp.config(function($stateProvider, $urlRouterProvider){
         .state('login', {
               url: "/login",
               templateUrl: "views/login.html",
-              controller: 'loginCtrl'
+              controller: 'LoginCtrl'
         })
-
-    })
+})
+//Sirve para inicializar la app
+myapp.run(function ($rootScope) {
+    $rootScope.aboutPlusloginClicks = 0;
+})

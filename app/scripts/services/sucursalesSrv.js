@@ -1,5 +1,5 @@
 var myapp = angular.module('cursoangularApp')
-myapp.factory('sucursalesSrv', function ($rootScope, $http) {
+myapp.factory('SucursalesSrv', function ($http) {
 	var factory = {};
 
   	//curl -X POST 'http://ec2-52-90-252-132.compute-1.amazonaws.com:7777/papi/productos/lst' -d '{}'

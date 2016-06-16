@@ -8,7 +8,7 @@
  * Controller of the cursoangularApp
  */
  var myapp = angular.module('cursoangularApp')
- myapp.controller('todoListCtrl', function ($scope) {
+ myapp.controller('TodoListCtrl', function ($scope) {
 
    $scope.todos=[
      {text:'Learn AngularJs',done:true},
@@ -30,7 +30,3 @@
       }
     )};
   })
-
- .controller('loginCtrl', function ($scope) {
-   $scope.nombre="pepe";
- });

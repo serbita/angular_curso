@@ -1,7 +1,7 @@
 'use strict';
 
 var myapp = angular.module('cursoangularApp')
-myapp.controller('billMakerCtrl', function ($scope) {
+myapp.controller('BillMakerCtrl', function ($scope) {
 
   //console.log('el item no existia en la lista bill');
 
