@@ -73,8 +73,29 @@ myapp.config(function($stateProvider, $urlRouterProvider){
               templateUrl: "views/login.html",
               controller: 'LoginCtrl'
         })
+
+        .state('store', {
+              url: "/store",
+              templateUrl: "views/store.html"
+              //,
+              //controller: 'StoreCtrl'
+        })
+
+
+
 })
 //Sirve para inicializar la app
 myapp.run(function ($rootScope) {
     $rootScope.aboutPlusloginClicks = 0;
 })
+
+myapp.controller('TabController', function(){
+  this.tab = 'route1';
+  this.setTab = function(newValue){
+    this.tab = newValue;
+  };
+  this.isSet = function(tabName){
+    return this.tab === tabName;
+  };
+});
+
