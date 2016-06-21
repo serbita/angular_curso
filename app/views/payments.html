@@ -10,6 +10,11 @@
     <!-- bower:css -->
     <!-- endbower -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">    <!-- endbuild -->
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    
     <!-- build:css(.tmp) styles/main.css -->
     <!--Agregado por mi -->
     <!--endAgregado por mi-->
@@ -19,16 +24,25 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
+    <!-- Add your site or application content here 
     <div class="header">
-      <tab-directive></tab-directive>
     </div>
+-->
+
+
+
+
+
+
+
+
+
+
+
 
     <div class="container" ui-view>
-LOLO
+        <div class="well" ui-view="paymentsView"></div>        
     </div>
-
-    <div ng-include="../views/payments.html"> </div>
 
     <div class="footer">
       <div class="container"></div>
@@ -45,6 +59,7 @@ LOLO
     <!--endAgregado por mi-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
 
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -52,9 +67,18 @@ LOLO
     <script src="../scripts/epantePagosApp.js"></script>
     <!-- Controllers -->
     <script src="../scripts/controllers/paymentsCtrl.js"></script>    
-
     <!-- Services -->
     <script src="../scripts/services/paymentsSrv.js"></script>
-    <!-- endbuild -->
+    <!-- endbuild -->    
+
+
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
 </body>
 </html>

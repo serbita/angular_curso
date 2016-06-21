@@ -1,14 +1,4 @@
-'use strict';
-
-var myapp = angular.module('epantePagosApp', [])
-
-/*
-1_ Here's the calling order:
-2_ app.config()
-3_ app.run()
-4_ directive's compile functions (if they are found in the dom)
-5_ app.controller()
-
+var myapp = angular.module('epantePagosApp', ['ui.router']);
 
 myapp.config(function($stateProvider, $urlRouterProvider){
       
@@ -19,11 +9,28 @@ myapp.config(function($stateProvider, $urlRouterProvider){
         .state('route1', {
             url: "/",
             views: {
-                "todoList": {
-                    templateUrl: "../views/paymentList.html"
+                "paymentsView": {
+                    templateUrl: "../views/paymentList.html",
+                    controller: 'PaymentsCtrl'
+                },
+                "ayuda": {
+                    template: "AYUDA. Esta seccion no es un html en archivo separado"
+                }
             }
         })
 
-})
-*/
+        .state('route1.list', {
+              url: "/list",
+              templateUrl: "route1.list.html",
+              controller: function($scope){
+                $scope.items = ["A", "List", "Of", "Items"];
+              }
+        })
 
+        .state('empleados', {
+            url: "/empleados",
+            templateUrl: "views/employees.html",
+            controller: 'EmployeesCtrl'
+        })        
+        
+});

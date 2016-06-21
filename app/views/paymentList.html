@@ -1,7 +1,52 @@
-<div ng-controller="PaymentsCtrl">
-  <ul>
-    <li ng-repeat="payments in PaymentCtrl.list">
-      {{PaymentCtrl.status}}
-    </li>
-  </ul>
+<div ng-controller="PaymentsCtrl as payCtrl">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">{{payCtrl.barrio}}</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">{{payCtrl.userName}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Período</th>
+                    <th>Monto</th>
+                    <th>Concepto</th>               
+                    <th>Medio de Pago</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="payment in payCtrl.payments">
+                    <td>{{payment.month}}/{{payment.year}}</td>
+                    <td>{{payment.amount}}</td>
+                    <td>{{payment.concept}}</td>
+                    <td>{{payment.payment_method}}</td>
+                    <td>
+                        <span class="label label-info">{{payment.status}}</span>
+                    </td>
+                    <td>
+                        <button class="btn btn-default" ng-click="addItem()">
+                            <span class="glyphicon glyphicon-minus">1</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
