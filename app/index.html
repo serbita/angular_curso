@@ -25,30 +25,7 @@
 
     <!-- Add your site or application content here -->
     <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#/">Curso Angular</a>
-          </div>
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-            <ul class="nav navbar-nav" ng-controller="TabController as tab">
-              <li ng-class="{ active: tab.isSet('route1') }"><a ng-click="tab.setTab('route1')" ui-sref="route1">Route 1</a></li>
-              <li ng-class="{ active: tab.isSet('empleados') }"><a ng-click="tab.setTab('empleados')" ui-sref="empleados">Empleados</a></li>
-              <li ng-class="{ active: tab.isSet('sucursales') }"><a ng-click="tab.setTab('sucursales')" ui-sref="sucursales">Sucursales</a></li>
-              <li ng-class="{ active: tab.isSet('about') }"><a ng-click="tab.setTab('about')" ui-sref="about">About</a></li>
-              <li ng-class="{ active: tab.isSet('login') }"><a ng-click="tab.setTab('login')" ui-sref="login">Login</a></li>
-              <li ng-class="{ active: tab.isSet('store') }"><a ng-click="tab.setTab('store')" ui-sref="store">Store</a></li>
-
-            </ul>
-          </div>
-        </div>
-      </div>
+      <tab-directive></tab-directive>
     </div>
 
     <div class="container" ui-view>
@@ -72,7 +49,6 @@
               <div class="well" ui-view="projectList"></div>        
             </div>
           </div> 
-
     </div>
 
     <div class="footer">

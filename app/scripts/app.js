@@ -25,9 +25,6 @@ myapp.config(function($stateProvider, $urlRouterProvider){
                     templateUrl: "views/billMaker.html",
                     controller: 'BillMakerCtrl'
                 },
-                "projectList": {
-                    templateUrl: "views/project.html"
-                },
                 "ayuda": {
                     template: "AYUDA. Esta seccion no es un html en archivo separado"
                 }
@@ -80,14 +77,22 @@ myapp.config(function($stateProvider, $urlRouterProvider){
               //,
               //controller: 'StoreCtrl'
         })
-
-
-
+        
 })
+
 //Sirve para inicializar la app
 myapp.run(function ($rootScope) {
     $rootScope.aboutPlusloginClicks = 0;
 })
+
+myapp.directive('tabDirective', function(){
+  return {
+      restrict: 'E',
+      templateUrl: "views/tab.html",
+      controllerAs:"tab",
+      controller:"TabController"
+  }
+});
 
 myapp.controller('TabController', function(){
   this.tab = 'route1';
@@ -98,4 +103,5 @@ myapp.controller('TabController', function(){
     return this.tab === tabName;
   };
 });
+
 

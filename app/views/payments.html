@@ -1,0 +1,60 @@
+<!doctype html>
+<html ng-app="epantePagosApp">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <!--Agregado por mi -->
+    <!--endAgregado por mi-->
+  </head>
+  <body>
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="header">
+      <tab-directive></tab-directive>
+    </div>
+
+    <div class="container" ui-view>
+LOLO
+    </div>
+
+    <div ng-include="../views/payments.html"> </div>
+
+    <div class="footer">
+      <div class="container"></div>
+    </div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!--Agregado por mi
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+    <!--endAgregado por mi-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <!-- App js -->    
+    <script src="../scripts/epantePagosApp.js"></script>
+    <!-- Controllers -->
+    <script src="../scripts/controllers/paymentsCtrl.js"></script>    
+
+    <!-- Services -->
+    <script src="../scripts/services/paymentsSrv.js"></script>
+    <!-- endbuild -->
+</body>
+</html>
