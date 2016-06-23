@@ -2,11 +2,10 @@ var myapp = angular.module('epantePagosApp', ['ui.router']);
 
 myapp.config(function($stateProvider, $urlRouterProvider){
       
-      // For any unmatched url, send to /route1
       $urlRouterProvider.otherwise("/");
       
       $stateProvider
-        .state('route1', {
+        .state('/', {
             url: "/:codUser",
             views: {
                 "paymentsView": {
