@@ -2,35 +2,46 @@
 
 var myapp = angular.module('epantePagosApp');
 
-myapp.factory('APISrv', function ($http,$rootScope) {
+myapp.factory('APISrv', function ($http,$rootScope,$q) {
   var factory = {};
 
+  /*
+  retorna algo como {data: Object, status: 200, config: Object, statusText: "OK"}
+  */
   factory.get = function(uri) {
+    var def = $q.defer();
     $rootScope.isLoading = true;    
-    return $http.get(uri)
-          .then(function(res){
+    $http.get(uri)
+          .then(function (res){
+              def.resolve(res);
               $rootScope.isLoading = false;
-              return res.data.payments;
+              //console.log(res);
           }, function(errResponse){
-              console.error('Error Error');
+              def.reject(errResponse);
               $rootScope.isLoading = false;              
-              return $q.reject(errResponse);
+              console.error('Error Error');
           }
     );
+    return def.promise;
   };
 
+  /*
+  retorna algo como {data: Object, status: 200, config: Object, statusText: "OK"}
+  */
   factory.post = function(uri,body) {
+    var def = $q.defer();
     $rootScope.isLoading = true;    
-    return $http.post(uri,body)
+    $http.post(uri,body)
           .then(function(res){
-              $rootScope.isLoading = false;
-              return res.data;
-          }, function(errResponse){
-              console.error('Error Error');
+              def.resolve(res);
               $rootScope.isLoading = false;              
-              return $q.reject(errResponse);
+          }, function(errResponse){
+              def.reject(errResponse);
+              console.error('Error Error');
+              $rootScope.isLoading = false;
           }
     );
+    return def.promise;
   };
 
   return factory;
