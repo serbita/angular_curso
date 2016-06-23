@@ -34,7 +34,7 @@
             <tbody>
                 <tr ng-repeat="payment in payCtrl.payments">
                     <td>{{payment.month}}/{{payment.year}}</td>
-                    <td>{{payment.amount}}</td>
+                    <td>{{payment.amount | currency:'AR$':2}}</td>
                     <td>{{payment.concept}}</td>
                     <td>{{payment.payment_method}}</td>
                     <td>

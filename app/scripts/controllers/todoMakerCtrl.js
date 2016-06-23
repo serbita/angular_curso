@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name cursoangularApp.controller:MainCtrl
+ * @name epantePagosApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the cursoangularApp
+ * Controller of the epantePagosApp
  */
- var myapp = angular.module('cursoangularApp')
+ var myapp = angular.module('epantePagosApp')
  myapp.controller('TodoListCtrl', function ($scope) {
 
    $scope.todos=[

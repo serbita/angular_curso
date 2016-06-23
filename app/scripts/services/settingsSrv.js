@@ -1,4 +1,4 @@
-var myapp = angular.module('cursoangularApp')
+var myapp = angular.module('epantePagosApp')
 myapp.factory('settingsSrv', function ($rootScope, $http) {
 	var factory = {};
 

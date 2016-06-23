@@ -10,17 +10,16 @@ myapp.controller('PaymentsCtrl', ['$scope','PaymentsSrv',function ($scope, Payme
 	self.barrio = "Barrio La Pancha";
 
 	self.list = function(){
-            PaymentsSrv.list()
-                  .then(
-                               function(d) {
-                                    self.payments = d;
-                               },
-                                function(errResponse){
-                                    console.error('Error while fetching Currencies');
-                                }
-                       );
+        PaymentsSrv.list().then(
+         function(d) {
+              self.payments = d;
+         },
+         function(errResponse){
+              console.error('Error while fetching Currencies');
+         }
+        );
     };
 
-    this.list();
+    self.list();
 
 }])

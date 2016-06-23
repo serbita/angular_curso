@@ -1,5 +1,5 @@
-<div>
-    SUCURSALES http://blog.ninja-squad.com/2015/05/28/angularjs-promises/
+<div ng-controller="SucursalesCtrl as sucCtrl">
+    SUCURSALES
     <table class="table table-sm">
         <thead>
             <tr>
@@ -7,7 +7,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="sucursal in sucursalList">
+            <tr ng-repeat="sucursal in sucCtrl.sucursalList">
                 <td>{{sucursal.nombre}}</td>
             </tr>
         </tbody>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="cursoangularApp">
+<html ng-app="epantePagosApp">
   <head>
     <meta charset="utf-8">
     <title></title>
@@ -13,9 +13,10 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
 
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/todo.css">    
     <!--Agregado por mi -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/todo.css">
+    <link rel="stylesheet" href="styles/loading.css">    
     <!--endAgregado por mi-->
   </head>
   <body>
@@ -92,7 +93,6 @@
     <script src="scripts/app.js"></script>
     <!-- Controllers -->
     <script src="scripts/controllers/todoMakerCtrl.js"></script>
-    <script src="scripts/controllers/employeesCtrl.js"></script>
     <script src="scripts/controllers/sucursalesCtrl.js"></script>     
     <script src="scripts/controllers/aboutCtrl.js"></script>
     <script src="scripts/controllers/billMakerCtrl.js"></script>
@@ -100,9 +100,9 @@
     <script src="scripts/controllers/storeCtrl.js"></script>    
 
     <!-- Services -->
+    <script src="scripts/services/utilsSrv.js"></script>
     <script src="scripts/services/settingsSrv.js"></script>        
     <script src="scripts/services/sucursalesSrv.js"></script>    
-    <script src="scripts/services/employeesSrv.js"></script>        
     <!-- endbuild -->
 </body>
 </html>

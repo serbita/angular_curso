@@ -1,6 +1,6 @@
 'use strict';
 
-var myapp = angular.module('cursoangularApp')
+var myapp = angular.module('epantePagosApp')
 myapp.controller('BillMakerCtrl', function ($scope) {
 
   $scope.itemList=[{"_id":"552474d0d9e3d079f78e4ef0","nombre":"Té Dharamsala","categoria":"Bebidas","precio":18,"stock":39},{"_id":"552474d0d9e3d079f78e4ef1","nombre":"Cerveza tibetana Barley","categoria":"Bebidas","precio":19,"stock":17},{"_id":"552474d0d9e3d079f78e4ef2","nombre":"Sirope de regaliz","categoria":"Condimentos","precio":10,"stock":13},{"_id":"552474d0d9e3d079f78e4ef3","nombre":"Especias Cajun del chef Anton","categoria":"Condimentos","precio":22,"stock":53},{"_id":"552474d0d9e3d079f78e4ef4","nombre":"Mezcla Gumbo del chef Anton","categoria":"Condimentos","precio":21.35,"stock":0},{"_id":"552474d0d9e3d079f78e4ef5","nombre":"Mermelada de grosellas de la abuela","categoria":"Condimentos","precio":25,"stock":120}];

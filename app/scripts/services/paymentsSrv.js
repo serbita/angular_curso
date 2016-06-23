@@ -1,23 +1,13 @@
 'use strict';
 
 var myapp = angular.module('epantePagosApp')
-myapp.factory('PaymentsSrv', function ($http) {
+
+myapp.factory('PaymentsSrv',function ($http,APISrv) {
 	var factory = {};
 
-	factory.list = function() {
-		console.log("--b");
-		return $http.get('http://private-7cd9-serbita.apiary-mock.com/payments')
-  		.then(
-  			function(res){
-  				return res.data.payments;
-			}, 
-            function(errResponse){
-                console.error('Error while deleting user');
-                return $q.reject(errResponse);
-            }
-		);
-  	};
+  factory.list = function() {
+    return APISrv.get('http://private-7cd9-serbita.apiary-mock.com/payments');
+  };
 
 	return factory;
-
 });

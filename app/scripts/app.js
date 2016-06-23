@@ -1,6 +1,6 @@
 'use strict';
 
-var myapp = angular.module('cursoangularApp', ["ui.router","ngAnimate","ngCookies","ngResource","ngRoute","ngSanitize","ngTouch"])
+var myapp = angular.module('epantePagosApp', ["ui.router","ngAnimate","ngCookies","ngResource","ngRoute","ngSanitize","ngTouch"])
 /*
 1_ Here's the calling order:
 2_ app.config()
@@ -83,6 +83,7 @@ myapp.config(function($stateProvider, $urlRouterProvider){
 //Sirve para inicializar la app
 myapp.run(function ($rootScope) {
     $rootScope.aboutPlusloginClicks = 0;
+    $rootScope.isLoading = true;    
 })
 
 myapp.directive('tabDirective', function(){
