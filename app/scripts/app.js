@@ -8,10 +8,10 @@ var myapp = angular.module('epantePagosApp', ["ui.router","ngAnimate","ngCookies
 4_ directive's compile functions (if they are found in the dom)
 5_ app.controller()
 */
-myapp.config(function($stateProvider, $urlRouterProvider){
+myapp.config(function($stateProvider, $urlRouterProvider,$locationProvider){
       
-      // For any unmatched url, send to /route1
-      $urlRouterProvider.otherwise("/");
+      // For any unmatched url, send to /
+      $urlRouterProvider.otherwise("/error");
       
       $stateProvider
         .state('route1', {
@@ -77,7 +77,17 @@ myapp.config(function($stateProvider, $urlRouterProvider){
               //,
               //controller: 'StoreCtrl'
         })
-        
+
+        .state('error', {
+            url: "/error",
+            template: "<h1>Error url no definida</h1> <br> Poner: http://localhost:9000/views/payments.html#/0001"
+        });
+
+        $locationProvider.html5Mode({
+          enabled: true,
+          requireBase: false
+        });
+              
 })
 
 //Sirve para inicializar la app

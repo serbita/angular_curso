@@ -1,29 +1,29 @@
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#/">Curso Angular</a>
-          </div>
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li ng-class="{ active: tab.isSet('route1') }"><a ng-click="tab.setTab('route1')" ui-sref="route1">Route 1</a></li>
-              <li ng-class="{ active: tab.isSet('sucursales') }"><a ng-click="tab.setTab('sucursales')" ui-sref="sucursales">Sucursales</a></li>
-              <li ng-class="{ active: tab.isSet('about') }"><a ng-click="tab.setTab('about')" ui-sref="about">About</a></li>
-              <li ng-class="{ active: tab.isSet('login') }"><a ng-click="tab.setTab('login')" ui-sref="login">Login</a></li>
-              <li ng-class="{ active: tab.isSet('store') }"><a ng-click="tab.setTab('store')" ui-sref="store">Store</a></li>
-              <li ng-class="{ active: tab.isSet('otra-app') }"><a href="views/payments.html#/codUser">Otra App</a></li>
+<div class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#/">Curso Angular</a>
+    </div>
+    <div class="collapse navbar-collapse" id="js-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li ng-class="{ active: tab.isSet('route1') }"><a ng-click="tab.setTab('route1')" ui-sref="route1">Route 1</a></li>
+        <li ng-class="{ active: tab.isSet('sucursales') }"><a ng-click="tab.setTab('sucursales')" ui-sref="sucursales">Sucursales</a></li>
+        <li ng-class="{ active: tab.isSet('about') }"><a ng-click="tab.setTab('about')" ui-sref="about">About</a></li>
+        <li ng-class="{ active: tab.isSet('login') }"><a ng-click="tab.setTab('login')" ui-sref="login">Login</a></li>
+        <li ng-class="{ active: tab.isSet('store') }"><a ng-click="tab.setTab('store')" ui-sref="store">Store</a></li>
+        <li ng-class="{ active: tab.isSet('otra-app') }"><a href="http://localhost:9000/views/payments.html">Otra App</a></li>
 
-            </ul>
-          </div>
+      </ul>
+    </div>
 
-          <!-- Loading progress -->
-          <div class="load-bar" ng-show="isLoading"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
-          <!-- End Loading progress -->
+    <!-- Loading progress -->
+    <div class="load-bar" ng-show="isLoading"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+    <!-- End Loading progress -->
 
-        </div>
-      </div>
+  </div>
+</div>

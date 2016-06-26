@@ -6,14 +6,16 @@ myapp.controller('PaymentsCtrl', ['$scope','PaymentsSrv','$stateParams',function
 	var self = this;
 	self.payments = [];
 
-	self.userName = "Horacio Alberto Mancilla";
-	self.barrio = "Barrio La Pancha";
+	self.userName = "";
+	self.barrio = "";
 
     //console.log("codUser:"+$stateParams.codUser);
 	self.list = function(){
         PaymentsSrv.getPaymentsByUser($stateParams.codUser).then(
          function(d) {
-              self.payments = d;
+                self.payments = d.payments;
+                self.userName = d.userName;
+                self.barrio = d.barrio
          },
          function(errResponse){
               console.error('Error while fetching Currencies');
@@ -22,5 +24,18 @@ myapp.controller('PaymentsCtrl', ['$scope','PaymentsSrv','$stateParams',function
     };
 
     self.list();
+/*
+    this.getStatusClass = function(status){
+        var res = false;
+        console.log(status);
+        if (status == 'created') res = true;
+        return res;
+    };
+*/
 
-}])
+}]);
+
+
+
+
+
