@@ -9,7 +9,6 @@ myapp.controller('PaymentsCtrl', ['$scope','PaymentsSrv','$stateParams',function
 	self.userName = "";
 	self.barrio = "";
 
-    //console.log("codUser:"+$stateParams.codUser);
 	self.list = function(){
         PaymentsSrv.getPaymentsByUser($stateParams.codUser).then(
          function(d) {
@@ -24,14 +23,6 @@ myapp.controller('PaymentsCtrl', ['$scope','PaymentsSrv','$stateParams',function
     };
 
     self.list();
-/*
-    this.getStatusClass = function(status){
-        var res = false;
-        console.log(status);
-        if (status == 'created') res = true;
-        return res;
-    };
-*/
 
 }]);
 

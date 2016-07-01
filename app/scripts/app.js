@@ -18,15 +18,18 @@ myapp.config(function($stateProvider, $urlRouterProvider,$locationProvider){
             url: "/",
             views: {
                 "todoList": {
-                    templateUrl: "views/todoList.html",
-                    controller: 'TodoListCtrl'
+                  templateUrl: "views/todoList.html",
+                  controller: 'TodoListCtrl'
                 },
                 "billMaker": {
-                    templateUrl: "views/billMaker.html",
-                    controller: 'BillMakerCtrl'
+                  templateUrl: "views/billMaker.html",
+                  controller: 'BillMakerCtrl'
                 },
                 "ayuda": {
-                    template: "AYUDA. Esta seccion no es un html en archivo separado"
+                  template: "AYUDA. Esta seccion no es un html en archivo separado"
+                },
+                "users": {
+                  templateUrl: "views/users.html"
                 }
             }
         })
@@ -90,12 +93,14 @@ myapp.config(function($stateProvider, $urlRouterProvider,$locationProvider){
               
 })
 
-//Sirve para inicializar la app
+/* Run. Sirve para inicializar la app */
 myapp.run(function ($rootScope) {
     $rootScope.aboutPlusloginClicks = 0;
-    $rootScope.isLoading = true;    
+    $rootScope.isLoading = false;
+    $rootScope.isError = false;
 })
 
+/* Directives */
 myapp.directive('tabDirective', function(){
   return {
       restrict: 'E',
@@ -103,6 +108,25 @@ myapp.directive('tabDirective', function(){
       controllerAs:"tab",
       controller:"TabController"
   }
+});
+
+myapp.directive('overwriteEmail', function() {
+  var EMAIL_REGEXP = /^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@serbita\.com$/i;
+
+  return {
+    require: 'ngModel',
+    restrict: '',
+    link: function(scope, elm, attrs, ctrl) {
+      // only apply the validator if ngModel is present and Angular has added the email validator
+      if (ctrl && ctrl.$validators.email) {
+
+        // this will overwrite the default Angular email validator
+        ctrl.$validators.email = function(modelValue) {
+          return ctrl.$isEmpty(modelValue) || EMAIL_REGEXP.test(modelValue);
+        };
+      }
+    }
+  };
 });
 
 myapp.controller('TabController', function(){

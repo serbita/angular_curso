@@ -17,13 +17,16 @@
         <li ng-class="{ active: tab.isSet('login') }"><a ng-click="tab.setTab('login')" ui-sref="login">Login</a></li>
         <li ng-class="{ active: tab.isSet('store') }"><a ng-click="tab.setTab('store')" ui-sref="store">Store</a></li>
         <li ng-class="{ active: tab.isSet('otra-app') }"><a href="http://localhost:9000/views/payments.html">Otra App</a></li>
-
       </ul>
     </div>
 
     <!-- Loading progress -->
     <div class="load-bar" ng-show="isLoading"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
     <!-- End Loading progress -->
+
+    <!-- Error section -->
+    <div ng-show="isError">Hubo un Error... Falta hacer la logica para que desaparezca este cartel.</div>
+    <!-- End Error section -->
 
   </div>
 </div>

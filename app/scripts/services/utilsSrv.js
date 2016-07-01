@@ -15,11 +15,11 @@ myapp.factory('APISrv', function ($http,$rootScope,$q) {
           .then(function (res){
               def.resolve(res);
               $rootScope.isLoading = false;
-              //console.log(res);
           }, function(errResponse){
               def.reject(errResponse);
-              $rootScope.isLoading = false;              
-              console.error('Error Error');
+              console.error('Error...');
+              $rootScope.isLoading = false;
+              $rootScope.isError = true;
           }
     );
     return def.promise;
@@ -34,11 +34,12 @@ myapp.factory('APISrv', function ($http,$rootScope,$q) {
     $http.post(uri,body)
           .then(function(res){
               def.resolve(res);
-              $rootScope.isLoading = false;              
+              $rootScope.isLoading = false;
           }, function(errResponse){
               def.reject(errResponse);
-              console.error('Error Error');
+              console.error('Error...');
               $rootScope.isLoading = false;
+              $rootScope.isError = true;
           }
     );
     return def.promise;
