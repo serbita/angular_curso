@@ -89,3 +89,18 @@ body {
 .ng-valid.ng-dirty {
   border-color: green;
 }
+
+/*
+.help-block {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #737373;
+}*/
+
+form .custom-help-block {
+    margin-top: 0px;
+    position: relative;
+    font-size: 0.8em;
+    color: darkorange;
+}

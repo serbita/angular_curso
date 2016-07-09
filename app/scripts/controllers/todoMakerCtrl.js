@@ -10,6 +10,8 @@
  var myapp = angular.module('epantePagosApp')
  myapp.controller('TodoListCtrl', function ($scope) {
 
+   $scope.formTodoText = "Comprar Ropa";
+
    $scope.todos=[
      {text:'Learn AngularJs',done:true},
      {text:'Build an app',done:false}
