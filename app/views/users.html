@@ -1,100 +1,130 @@
 <div ng-controller="UsersCtrl as uCtrl">
 
-<form name="userForm" novalidate>  <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
+    <form name="userForm" novalidate> 
+    <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
 
-    <div class="form-group">
-        <label>Name (Validaciones de longitud min 3 y max 8)</label>
-        <input type="text" name="name" ng-model="uCtrl.user.name" ng-minlength="3" ng-maxlength="8" placeholder="Name" required  class="form-control"/>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" ng-model="uCtrl.user.name" ng-minlength="3" ng-maxlength="8" placeholder="Validaciones de longitud min 3 y max 8" required  class="form-control"/>
+            <div class="custom-help-block" ng-if="uCtrl.interacted(userForm.name)" ng-messages="userForm.name.$error">
+                <div ng-message="required">You did not enter your first name</div>
+                <div ng-message="minlength">The value for this field is too short</div>
+                <div ng-message="maxlength">The value for this field is too long</div>            
+            </div>
+        </div>    
 
-        <div class="error-messages" ng-if="interacted(userForm.name)" ng-messages="userForm.name.$error">
-            <div ng-message="required">You did not enter your first name</div>
+        <div class="form-group">    
+            <label>Email</label>
+            <input type="email" name="email" ng-model="uCtrl.user.email" ng-model-options="{updateOn:'blur'}" placeholder="Validaciones cuando saca el foco al input" class="form-control"/>
+            <div class="custom-help-block" ng-if="uCtrl.interacted(userForm.email)" ng-messages="userForm.email.$error">
+                <div ng-message="email">Wrong email format</div>
+            </div>
+        </div>    
+
+        <div class="form-group">
+            <label>Email con @serbita.com</label>
+            <input type="email" ng-model="uCtrl.user.emailWithDomain" name="overwrittenEmail" ng-model-options="{updateOn:'blur'}" placeholder="Sobreescribo primitiva de validación de email" overwrite-email class="form-control"/>
+            <div class="custom-help-block" ng-if="uCtrl.interacted(userForm.overwrittenEmail)" ng-messages="userForm.overwrittenEmail.$error">
+                <div ng-message="email">Wrong email format</div>
+            </div>
         </div>
 
-        <!--p ng-show="userForm.name.$error.minlength" class="custom-help-block">Name is too short.</p>
-        <p ng-show="userForm.name.$error.maxlength" class="custom-help-block">Name is too long.</p>
-        <p ng-show="userForm.name.$invalid && submitted" class="custom-help-block">Your name is required.</p-->
-    </div>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" ng-model="uCtrl.user.username" name="username" placeholder="Valida existencia de usuario. Ocupados: Jim, Jill" ng-model-options="{updateOn:'blur'}" usernamevalidator required class="form-control"/>
 
-    <div class="form-group">
-        <label>Email (Validaciones cuando saca el foco al input)</label>
-        <input type="email" name="email" ng-model="uCtrl.user.email" ng-model-options="{updateOn:'blur'}" placeholder="Email" class="form-control"/>
-        <p ng-show="userForm.email.$invalid && submitted" class="custom-help-block">Email wrong format</p>
-    </div>
+            <div class="custom-help-block"  ng-show="userForm.username.$pending.usernamevalidator" class="custom-help-block">
+                Checking if this name is available...
+            </div>
+            <div class="custom-help-block" ng-if="uCtrl.interacted(userForm.username)" ng-messages="userForm.username.$error">
+                <div ng-message="required">Enter a username</div>
+                <div ng-message="usernamevalidator">Wrong email format</div>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label>Sobreescribo la validacion primitiva de email. Debe contener @serbita.com</label>
-        <input type="email" ng-model="uCtrl.user.emailWithDomain" name="overwrittenEmail" placeholder="@serbita.com" overwrite-email class="form-control"/>
-        <p ng-show="userForm.overwrittenEmail.$error.email" class="custom-help-block">This email format is invalid!</p>
-    </div>
+        <div class="form-group">
+            <label>Note</label>
+        	<textarea ng-model="uCtrl.user.note" name="note" placeholder="Textarea element. Agregar una nota" required  class="form-control"></textarea>
+            <div class="custom-help-block" ng-if="uCtrl.interacted(userForm.note)" ng-messages="userForm.note.$error">
+                <div ng-message="required">Add a note please</div>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label>Valida existencia de usuario. Uso de asyncValidators conocer la respuesta. Ocupados: Jim, Jill</label>
-        <input type="text" ng-model="uCtrl.user.username" name="username" placeholder="username" usernamevalidator  class="form-control"/>
-        <p ng-show="userForm.username.$pending.usernamevalidator" class="custom-help-block">Checking if this name is available...</p>
-        <p ng-show="userForm.username.$error.usernamevalidator" class="custom-help-block">This username is already taken!</p>
-    </div>
-
-    <div class="form-group">
-        <label>Validaciones de textarea</label>
-    	<textarea ng-model="uCtrl.user.note" name="note" placeholder="Agregar una nota" required  class="form-control"></textarea>
-	   <p ng-show="userForm.note.$invalid && !userForm.note.$pristine" class="custom-help-block">Add a note</p>  	
-    </div>
-
-    <div>
-        Genero
-        <label class="radio-inline">
-            <input type="radio" ng-model="uCtrl.user.gender" value="male" required />male
-        </label>        
-
-        <label class="radio-inline">
-            <input type="radio" ng-model="uCtrl.user.gender" value="female" required />female
-        </label>        
-    </div>
-
-    <div class="form-group">
-        <label>Validaciones ng-pattern. Formato (111)111-1111</label>
-        <input type="text" name="userphone" ng-model="uCtrl.user.phone" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/" required class="form-control"/>
-        <p ng-show="userForm.userphone.$invalid && !userForm.userphone.$pristine" class="custom-help-block">Wrong phone format</p>
-    </div>
-
-    <div class="form-group">
-        <label>Validaciones de select seleccionado</label>
-        <select name="userstate" ng-model="uCtrl.user.stateId" required  class="form-control">
-            <option value="">Select State</option>
-            <option ng-repeat="option in uCtrl.user.states" value="{{option.id}}" >{{option.name}}</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Validaciones de seteo de una fecha. Debe ser en el año 2015</label>
-        <input type="date" name="userBirthdate" ng-model="uCtrl.user.birthdate" min="2015-01-01" max="2015-12-31" required  class="form-control"/>
-    </div>
-
-    <div class="form-group">
-        <label>Do you Agree?</label>
-        <div class="checkbox">
-            <label>
-    	       <input type="checkbox" ng-model="uCtrl.user.agree" name="userAgree" required /> I agree
-                <p ng-show="userForm.userAgree.$invalid"  class="custom-help-block" >Please agree</p>
+        <div>
+            <label class="radio-inline">
+                <input type="radio" name="usergenero" ng-model="uCtrl.user.gender" value="male" required />male
+            </label>        
+            <label class="radio-inline">
+                <input type="radio" name="usergenero" ng-model="uCtrl.user.gender" value="female" required />female
             </label>
-      </div>        
-    </div>
-<p>
-    <input type="submit" ng-click="uCtrl.submitForm()" value="Save" class="btn btn-primary"/>
-    <input type="button" ng-click="uCtrl.reset()" value="Reset" class="btn btn-default"/>
-</p>
-</form>
 
-<pre>Pasaron todas las validaciones: {{userForm.$valid}}
-submited: {{submitted}}
-Objeto user en controller: {{uCtrl.user | json}}
-Objeto user en form: {{userForm | json}}</pre>
+            <div class="custom-help-block" ng-if="uCtrl.interacted(userForm.usergenero)" ng-messages="userForm.usergenero.$error">
+                <div ng-message="required">Seleccione el genero</div>
+            </div>
+        </div>
 
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" name="userphone" ng-model="uCtrl.user.phone" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/" required placeholder="Validaciones ng-pattern. Formato (XXX)YYY-ZZZZ" class="form-control"/>
 
-https://code.angularjs.org/1.4.0/docs/guide/forms <br />
-https://codepen.io/sevilayha/pen/xFcdI <br />
-http://www.yearofmoo.com/2014/09/taming-forms-in-angularjs-1-3.html <br />
-http://plnkr.co/edit/Qjz7OUJRYiG8TXoTL3JE?p=preview <br />
-http://stackoverflow.com/questions/28717378/angularjs-custom-directive-to-check-if-a-username-exists <br />
+            <div class="custom-help-block" ng-if="uCtrl.interacted(userForm.userphone)" ng-messages="userForm.userphone.$error">
+                <div ng-message="required">Wrong phone format</div>
+            </div>
+        </div>
 
-</div>
+        <div class="form-group">
+            <label>State</label>
+            <select name="userstate" ng-model="uCtrl.user.stateId" required class="form-control">
+                <option value="">Select State</option>
+                <option ng-repeat="option in uCtrl.user.states" value="{{option.id}}" >{{option.name}}</option>
+            </select>
+
+            <div class="custom-help-block" ng-if="uCtrl.interacted(userForm.userstate)" ng-messages="userForm.userstate.$error">
+                <div ng-message="required">Select a state</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Date</label>
+            <input type="date" name="userBirthdate" ng-model="uCtrl.user.birthdate" min="2015-01-01" max="2015-12-31" required placeholder="Validaciones de seteo de una fecha. Debe ser en el año 2015 TODO" class="form-control"/>
+
+            <div class="custom-help-block" ng-if="uCtrl.interacted(userForm.userBirthdate)" ng-messages="userForm.userBirthdate.$error">
+                <div ng-message="required">Debe ser en el año 2015.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Do you Agree?</label>
+            <div class="checkbox">
+                <label>
+        	       <input type="checkbox" ng-model="uCtrl.user.agree" name="userAgree" required /> I agree
+                </label>
+            </div>
+
+            <div class="custom-help-block" ng-if="uCtrl.interacted(userForm.userAgree)" ng-messages="userForm.userAgree.$error">
+                <div ng-message="required">Please agree</div>
+            </div>
+        </div>
+
+        <p>
+            <input type="submit" ng-click="uCtrl.submitForm()" value="Save" class="btn btn-primary"/>
+            <input type="button" ng-click="uCtrl.reset()" value="Reset" class="btn btn-default"/>
+        </p>
+    </form>
+
+    <pre>
+    Pasaron todas las validaciones: {{userForm.$valid}}
+    submited: {{submitted}}
+    Objeto user en controller: {{uCtrl.user | json}}
+    Objeto user en form: {{userForm | json}}
+
+    https://code.angularjs.org/1.4.0/docs/guide/forms 
+    https://codepen.io/sevilayha/pen/xFcdI
+    http://www.yearofmoo.com/2014/09/taming-forms-in-angularjs-1-3.html
+    http://plnkr.co/edit/Qjz7OUJRYiG8TXoTL3JE?p=preview
+    http://stackoverflow.com/questions/28717378/angularjs-custom-directive-to-check-if-a-username-exists
+    http://www.yearofmoo.com/2014/05/how-to-use-ngmessages-in-angularjs.html
+    https://yearofmoo.github.io/ngMessages/
+    </pre>
+
+</div> <!-- end of div ng-controller -->

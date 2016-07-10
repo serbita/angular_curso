@@ -1,6 +1,6 @@
 'use strict';
 
-var myapp = angular.module('epantePagosApp', ["ui.router","ngAnimate","ngCookies","ngResource","ngRoute","ngSanitize","ngTouch"])
+var myapp = angular.module('epantePagosApp', ["ngMessages","ui.router","ngAnimate","ngCookies","ngResource","ngRoute","ngSanitize","ngTouch"])
 /*
 1_ Here's the calling order:
 2_ app.config()
@@ -53,6 +53,12 @@ myapp.config(function($stateProvider, $urlRouterProvider,$locationProvider){
             url: "/sucursales",
             templateUrl: "views/sucursales.html",
             controller: 'SucursalesCtrl'
+        })
+
+        .state('ABMusers', {
+            url: "/ABMusers",
+            templateUrl: "views/users.html",
+            controller: 'UsersCtrl'
         })
 
         .state('about', {
@@ -137,7 +143,6 @@ myapp.directive('usernamevalidator', function($q, $timeout) {
     var usernames = ['Jim', 'John', 'Jill', 'Jackie'];
 
       ctrl.$asyncValidators.usernamevalidator = function(modelValue, viewValue) {
-
         if (ctrl.$isEmpty(modelValue)) {
           // consider empty model valid
           return $q.when();
@@ -155,6 +160,7 @@ myapp.directive('usernamevalidator', function($q, $timeout) {
           }
 
         }, 2000);
+
 
         return def.promise;
       };

@@ -31,13 +31,6 @@
     </div>
 
     <div class="container" ui-view>
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="well" ui-view="users"></div>        
-            </div>
-          </div> 
-
           <div class="row">
             <div class="col-md-12">
               <div class="well" ui-view="billMaker"></div>        
@@ -71,10 +64,11 @@
        ga('send', 'pageview');
     </script>
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
     <!--script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script-->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>    
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -88,6 +82,7 @@
     <!-- Agregado por mi-->
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>    
     <!--end Agregado por mi-->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->

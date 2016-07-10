@@ -11,6 +11,7 @@ sudo npm install -g generator-angular
 //instalar angular-ui-router
 bower install angular-ui-router
 bower install underscore
+bower install angular-messages
 
 
 yo angular <nombre-de-la-app-que-queremos-usar>, ejemplo: yo angular angular_curso

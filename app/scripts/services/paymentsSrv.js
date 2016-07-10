@@ -17,8 +17,8 @@ myapp.factory('PaymentsSrv',function ($http,APISrv) {
   };
 
   factory.getPaymentsByUser = function (codUser) {
-//     return APISrv.get('http://private-7cd9-serbita.apiary-mock.com/payments')
-        return APISrv.get('http://localhost:8080/api/pagos/resumen/'+codUser)
+       return APISrv.get('http://private-7cd9-serbita.apiary-mock.com/payments')
+        //return APISrv.get('http://localhost:8080/api/pagos/resumen/'+codUser)
           .then(function (res) {                        
                return res.data;
           },
